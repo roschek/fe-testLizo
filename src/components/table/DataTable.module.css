@@ -45,6 +45,10 @@
   background: #f3f4ff !important;
 }
 
+:global(.ag-theme-quartz .ag-cell-wrapper) {
+  gap: 0;
+}
+
 :global(.ag-theme-quartz),
 :global([class*='ag-theme']) {
   --ag-header-background-color: #f5f6fa;
@@ -70,7 +74,7 @@
 :global(.ag-theme-quartz .ag-icon-none),
 :global(.ag-theme-quartz .ag-icon-menu),
 :global(.ag-theme-quartz .ag-icon-filter) {
-  display: none;
+  display: none !important;
 }
 
 :global(.ag-checkbox-input-wrapper .ag-checkbox-input-background) {
@@ -110,6 +114,40 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
+}
+
+.data-table__trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.data-table__trendValue {
+  display: inline-block;
+  min-width: 64px;
+}
+
+.data-table__trendArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.data-table__trendArrow svg {
+  width: 12px;
+  height: 12px;
+}
+
+.data-table__trendArrow--up {
+  color: #6b4bff;
+  transform: rotate(-90deg);
+}
+
+.data-table__trendArrow--down {
+  color: #ff5a5f;
+  transform: rotate(90deg);
 }
 
 .data-table__search {

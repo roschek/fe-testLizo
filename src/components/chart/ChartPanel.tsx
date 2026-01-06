@@ -1,5 +1,6 @@
 import { ResponsiveContainer, Scatter, ScatterChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import type { Formatter } from 'recharts/types/component/DefaultTooltipContent';
+import type { ScatterProps } from 'recharts';
 import type { ChartValueKey, TableRow } from '../../types/data';
 import { KpiDropdown } from './KpiDropdown';
 import styles from './ChartPanel.module.css';
@@ -65,6 +66,11 @@ export const ChartPanel = ({ rows, selectedZips, selectedKpi, onChangeKpi }: Cha
   const hasSelection = selectedPoints.length > 0;
   const tooltipFormatter: Formatter<string | number, string> = (value) =>
     typeof value === 'number' ? value.toFixed(2) : value;
+  const renderDot: ScatterProps['shape'] = (props: { cx?: number; cy?: number }) => {
+    const { cx, cy } = props;
+    if (cx === undefined || cy === undefined) return <g />;
+    return <circle cx={cx} cy={cy} r={4} fill="#1f1f1f" stroke="#ffffff" strokeWidth={1} />;
+  };
 
   return (
     <section className={styles['chart-panel']}>
@@ -100,7 +106,7 @@ export const ChartPanel = ({ rows, selectedZips, selectedKpi, onChangeKpi }: Cha
                   }
                 />
                 <Tooltip formatter={tooltipFormatter} />
-                <Scatter data={selectedPoints} fill="#3d51d7" name="Selected ZIPs" />
+                <Scatter data={selectedPoints} name="Selected ZIPs" fill="#1f1f1f" shape={renderDot} />
                 <Legend />
               </ScatterChart>
             </ResponsiveContainer>
@@ -136,7 +142,7 @@ export const ChartPanel = ({ rows, selectedZips, selectedKpi, onChangeKpi }: Cha
                   }
                 />
                 <Tooltip formatter={tooltipFormatter} />
-                <Scatter data={selectedPoints} fill="#ff7a59" name="Selected ZIPs" />
+                <Scatter data={selectedPoints} name="Selected ZIPs" fill="#1f1f1f" shape={renderDot} />
                 <Legend />
               </ScatterChart>
             </ResponsiveContainer>

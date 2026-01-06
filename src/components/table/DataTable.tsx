@@ -4,6 +4,7 @@ import { ModuleRegistry, AllCommunityModule, themeQuartz } from 'ag-grid-communi
 import type { ColDef, GridApi, GridReadyEvent, RowSelectionOptions } from 'ag-grid-community';
 import type { TableRow } from '../../types/data';
 import { formatCurrency, formatNumber, formatPercent } from '../../utils/format';
+import { IconArrow } from '../ui/icons/IconArrow';
 import styles from './DataTable.module.css';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -30,14 +31,26 @@ export const DataTable = ({
   const gridApiRef = useRef<GridApi | null>(null);
 
   const columnDefs = useMemo<ColDef<TableRow>[]>(() => {
-    const percentFormatter = ({ value }: { value: number }) => formatPercent(value);
-
     const currencyFormatter = ({ value }: { value: number }) => formatCurrency(value);
 
     const numberFormatter =
       (digits = 2) =>
       ({ value }: { value: number }) =>
         formatNumber(value, digits);
+
+    const trendRenderer = () => ({ value }: { value: number }) => {
+      if (value === undefined || value === null || Number.isNaN(value)) return '—';
+      const isUp = value >= 0;
+      const arrowClass = isUp ? styles['data-table__trendArrow--up'] : styles['data-table__trendArrow--down'];
+      return (
+        <span className={styles['data-table__trend']}>
+          <span className={styles['data-table__trendValue']}>{formatPercent(value)}</span>
+          <span className={`${styles['data-table__trendArrow']} ${arrowClass}`}>
+            <IconArrow />
+          </span>
+        </span>
+      );
+    };
 
     return [
       {
@@ -48,13 +61,13 @@ export const DataTable = ({
       { headerName: 'City', field: 'city', minWidth: 130 },
       { headerName: 'State', field: 'state', width: 90 },
       { headerName: 'Fit Score', field: 'fit_score', valueFormatter: numberFormatter(2), minWidth: 110 },
-      { headerName: 'Rent Growth (%)', field: 'rent_growth', valueFormatter: percentFormatter, minWidth: 150 },
+      { headerName: 'Rent Growth (%)', field: 'rent_growth', minWidth: 150, cellRenderer: trendRenderer() },
       { headerName: 'Median Home Value ($)', field: 'median_house_value', valueFormatter: currencyFormatter, minWidth: 190 },
-      { headerName: 'Occupancy Rate (%)', field: 'occupancy_rate_kpi', valueFormatter: percentFormatter, minWidth: 170 },
+      { headerName: 'Occupancy Rate (%)', field: 'occupancy_rate_kpi', minWidth: 170, cellRenderer: trendRenderer() },
       { headerName: 'Median Rent ($)', field: 'median_rent', valueFormatter: currencyFormatter, minWidth: 150 },
-      { headerName: 'Cap Rate (%)', field: 'cap_rate', valueFormatter: percentFormatter, minWidth: 140 },
-      { headerName: 'Rent to Income Ratio (%)', field: 'rent_to_income_ratio', valueFormatter: percentFormatter, minWidth: 200 },
-      { headerName: 'Migration Trend (%)', field: 'migration_trend', valueFormatter: percentFormatter, minWidth: 160 },
+      { headerName: 'Cap Rate (%)', field: 'cap_rate', minWidth: 140, cellRenderer: trendRenderer() },
+      { headerName: 'Rent to Income Ratio (%)', field: 'rent_to_income_ratio', minWidth: 200, cellRenderer: trendRenderer() },
+      { headerName: 'Migration Trend (%)', field: 'migration_trend', minWidth: 160, cellRenderer: trendRenderer() },
       { headerName: 'Scarcity Index', field: 'scarcity_index', valueFormatter: numberFormatter(2), minWidth: 130 },
       { headerName: 'Construction Start (#)', field: 'construction_start', valueFormatter: numberFormatter(0), minWidth: 180 },
     ];

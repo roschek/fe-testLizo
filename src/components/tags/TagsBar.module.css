@@ -10,7 +10,8 @@
   padding: 10px 12px;
   box-shadow: 0 8px 20px rgba(28, 39, 76, 0.06);
   overflow: hidden;
-  min-height: 48px;
+  min-height: 56px;
+  height: 56px;
 }
 
 .tags__list {
@@ -19,6 +20,7 @@
   gap: 8px;
   overflow-x: auto;
   padding-bottom: 4px;
+  min-height: 24px;
 }
 
 .tags__clear {
