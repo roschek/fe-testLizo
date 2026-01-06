@@ -1,0 +1,142 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 18px 12px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(28, 39, 76, 0.08);
+  border: 1px solid #e5e8f5;
+}
+
+.header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header__breadcrumbs {
+  font-size: 12px;
+  color: #8a93ad;
+  margin-bottom: 4px;
+  text-transform: lowercase;
+}
+
+.header__title {
+  font-weight: 700;
+  font-size: 18px;
+  color: #1c274c;
+  margin-bottom: 4px;
+}
+
+.header__subtitle {
+  font-size: 13px;
+  color: #8a93ad;
+}
+
+.header__segments {
+  display: inline-flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.segment {
+  padding: 8px 13px;
+  border-radius: 12px;
+  border: 1px solid #c7c4d6;
+  background: transparent;
+  color: #706a80;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.segment--active {
+  background: linear-gradient(135deg, #b3aecd, #9f99b8);
+  color: #fff;
+  border-color: #b3aecd;
+  box-shadow: 0 8px 18px rgba(159, 153, 184, 0.2);
+}
+
+.header__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.header__middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header__locations {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.location__label {
+  color: #7c86a5;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.location__pill {
+  background: #f5f2ff;
+  color: #4a4f63;
+  padding: 6px 11px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 12px;
+  border: 1px solid #e0dbff;
+}
+
+.header__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 32px;
+  justify-content: flex-end;
+}
+
+.header__tagsPlaceholder {
+  color: #9aa3bd;
+  font-size: 13px;
+}
+
+.header__kpis {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.kpiChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f7f6ff;
+  border: 1px solid #e3e0ff;
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #4a4f63;
+}
+
+.kpiChip__label {
+  font-weight: 700;
+}
+
+.kpiChip__value {
+  font-weight: 600;
+  color: #5a53f3;
+}
+
+.kpiChip__number {
+  font-weight: 800;
+  color: #1c274c;
+}
+

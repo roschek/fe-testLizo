@@ -1,0 +1,34 @@
+:root {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  color: #1c274c;
+  background-color: #f0f2f7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ag-theme-quartz {
+  --ag-foreground-color: #1c274c;
+  --ag-secondary-foreground-color: #4a4f63;
+  --ag-background-color: #fff;
+  --ag-header-foreground-color: #4a4f63;
+  --ag-header-background-color: #f7f8fd;
+  --ag-borders: 1px solid #e5e8f5;
+  --ag-row-hover-color: #f4f6ff;
+}

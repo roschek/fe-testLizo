@@ -1,0 +1,148 @@
+.filters {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 26px rgba(28, 39, 76, 0.08);
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.filters__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.filters__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1c274c;
+}
+
+.filters__group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filters__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7c86a5;
+}
+
+.filters__dropdown {
+  position: relative;
+}
+
+.filters__dropdownContent {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 2;
+  background: #fff;
+  border: 1px solid #e2e6f3;
+  border-radius: 12px;
+  box-shadow: 0 14px 36px rgba(28, 39, 76, 0.12);
+  padding: 12px;
+  min-width: 320px;
+}
+
+.filters__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  max-height: 220px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.filters__col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filters__empty {
+  font-size: 13px;
+  color: #9aa3bd;
+}
+
+.filters__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.filters__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.filters__search input {
+  width: 260px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  border: 1px solid #d6d9e8;
+  background: #f5f6fb;
+  font-size: 13px;
+  color: #4a4f63;
+}
+
+.filters__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  display: inline-block;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #dce1f0;
+  transition: 0.2s;
+  border-radius: 30px;
+}
+
+.toggle__slider:before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #fff;
+  transition: 0.2s;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.toggle input:checked + .toggle__slider {
+  background: linear-gradient(135deg, #5f73ff, #4c37f2);
+}
+
+.toggle input:checked + .toggle__slider:before {
+  transform: translateX(24px);
+}
+

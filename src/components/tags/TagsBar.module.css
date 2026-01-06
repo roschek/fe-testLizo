@@ -1,0 +1,36 @@
+.tags {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: nowrap;
+  background: #fff;
+  border: 1px solid #e5e8f5;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 8px 20px rgba(28, 39, 76, 0.06);
+  overflow: hidden;
+  min-height: 48px;
+}
+
+.tags__list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.tags__clear {
+  border: none;
+  background: transparent;
+  color: #5a53f3;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tags--hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+

@@ -1,0 +1,59 @@
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.ui-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ui-button--primary {
+  background: linear-gradient(135deg, #b3aecd, #9f99b8);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(159, 153, 184, 0.25);
+}
+
+.ui-button--primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(159, 153, 184, 0.28);
+}
+
+.ui-button--ghost {
+  background: transparent;
+  border: 1px solid #c7c4d6;
+  color: #706a80;
+}
+
+.ui-button--ghost:hover:not(:disabled) {
+  background: #f4f3f7;
+}
+
+.ui-button--md {
+  padding: 10px 16px;
+}
+
+.ui-button--sm {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.ui-button__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ui-button__label {
+  display: inline-flex;
+  align-items: center;
+}
+

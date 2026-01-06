@@ -1,0 +1,26 @@
+.ui-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1c274c;
+  font-size: 13px;
+  border: 1px solid #d1d9ff;
+}
+
+.ui-tag__label {
+  white-space: nowrap;
+}
+
+.ui-tag__remove {
+  border: none;
+  background: transparent;
+  padding: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
